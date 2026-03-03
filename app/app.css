@@ -5,6 +5,8 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+
+
 html,
 body {
   @apply bg-white dark:bg-gray-950;
@@ -13,3 +15,13 @@ body {
     color-scheme: dark;
   }
 } */
+
+/*
+Source - https://stackoverflow.com/a/42877693
+Posted by bora89, modified by community. See post 'Timeline' for change history
+Retrieved 2026-02-11, License - CC BY-SA 3.0
+*/
+
+html, body, #app, #app>div {
+  height: 100%
+}
