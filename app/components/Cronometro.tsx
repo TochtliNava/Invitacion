@@ -33,7 +33,7 @@ export default function Cronometro({deadline}: {deadline: any}) {
   }, [deadline]);
 
   return (
-    <div>
+    <div >
       <div className="flex h-full w-full"></div>
 
       <div className="flex h-full w-full justify-around">

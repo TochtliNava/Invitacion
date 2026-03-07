@@ -1,4 +1,4 @@
-import { LUGAR, BG, PHOTO_1, PHOTO_2, LAURELES } from "~/placeholder/placeholder";
+import { LUGAR, BG, PHOTO_1, PHOTO_2, LAURELES, FRASE } from "~/placeholder/placeholder";
 import type { Route } from "./+types/home";
 import Cronometro from "~/components/Cronometro";
 
@@ -11,27 +11,20 @@ export function meta({ }: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <div className="flex flex-col h-full w-full font-[Roboto_Slab] ">
+    <div className="flex flex-col bg-[#b3a8a5] h-full w-full font-[Roboto_Slab] ">
 
       <div className="flex flex-col relative bg-[url(./app/assets/img/placeholder1.png)] bg-cover bg-green-600 w-full md:flex md:flex-row-reverse md:bg-green-600">
 
-        {/* <img
-          src={PHOTO_1}
-          alt="FOTO POTRAIT"
-          className="md:hidden flex absolute"
-        /> */}
-
-
         <div className="flex flex-col absolute z-20 h-full w-full">
 
-          <div className="h-1/2"></div>
+          <div className="h-full"></div>
 
-          <div className="h-1/2 mask backdrop-filter-[blur(8px)] mask-t-from-70%"></div>
+          <div className="h-full backdrop-filter-[blur(10px)] mask-t-from-50%"></div>
 
         </div>
 
 
-        <div className="flex flex-col z-30 h-full w-full">
+        <div className="flex flex-col abs z-30 h-full w-full">
 
           <div className="flex flex-col w-full items-center justify-center text-center text-white text-shadow-lg/40">
 
@@ -43,11 +36,7 @@ export default function Home() {
 
               </div>
 
-              {/* <div className="text-[0.8rem]">UNIÓN ETERNA</div> */}
-
             </div>
-
-            {/* <div className="h-full"></div> */}
 
             <div className="font-norma w-full pb-4">
 
@@ -106,13 +95,37 @@ export default function Home() {
       </div>
 
 
-      <div className="flex flex-col h-full w-full bg-[url(./app/assets/img/bg3.jpg)] bg-cover bg-repeat">
+      <div className="flex flex-col relative font-[Inter] bg-amber-400 h-full w-full bg-[url(./app/assets/img/bg3.jpg)] bg-cover bg-repeat backdrop-filter-[blur(10px)] mask-t-from-80%">
 
-        <div className="w-full flex z-30 absolute flex-col text-white text-shadow-lg/40">
+        <div className="mt-15 text-amber-900 text-shadow-xs/20">
 
-            <Cronometro deadline={new Date("October 17, 2026 00:00:00")} />
+          <Cronometro deadline={new Date("October 17, 2026 00:00:00")} />
+
+        </div>
+
+        <div className="flex mt-10 pl-2 pr-2 text-center text-amber-900 text-shadow-xs/20">
+
+          <p className="italic">"{FRASE}"</p>
+
+        </div>
+
+        <div className="flex flex-col w-full mt-10 mb-4">
+
+          <div className="text-center">SPOTIFY</div>
+
+          <div>
+
+            <div className="text-center">UBICACIÓN</div>
+
+            <div>
+              {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1159.4264844453328!2d-103.75872629051327!3d19.239390234936103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84254507da444291%3A0xa3feb2c0d0691861!2sSal%C3%B3n%20y%20Terraza%20Calinda%20Eventos!5e0!3m2!1ses-419!2smx!4v1772761048764!5m2!1ses-419!2smx" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
+            </div>
 
           </div>
+
+          <div>a</div>
+
+        </div>
 
       </div>
 
