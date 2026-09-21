@@ -7,6 +7,14 @@ import BotonCalendario from "~/components/BotonCalendario";
 import BotonAsistencia from "~/components/BotonAsistencia";
 import bgHero from "~/assets/img/real1.jpg";
 import bgTexture from "~/assets/img/bg3.jpg";
+import cactusSvg from "~/assets/img/cactus.svg";
+import picado2Svg from "~/assets/img/picado2.svg";
+import picado3Svg from "~/assets/img/picado3.svg";
+import sombrerosSvg from "~/assets/img/sombreros.svg";
+import tacosSvg from "~/assets/img/tacos.svg";
+import photoReal2 from "~/assets/img/real2.jpg";
+import photoReal3 from "~/assets/img/real3.jpg";
+
 
 
 
@@ -30,7 +38,7 @@ export default function Home() {
         {/* Portada / Hero con formato móvil */}
         <div
           className="flex flex-col relative bg-cover bg-top min-h-[100dvh] w-full"
-          style={{ backgroundImage: `url(${bgHero})` }}
+          style={{ backgroundImage: `url(${photoReal3})` }}
         >
 
 
@@ -123,15 +131,40 @@ export default function Home() {
         <div className="flex flex-col w-full px-4 gap-16 mt-12 mb-16 text-amber-900 text-shadow-xs/20">
 
           {/* Fotos de los que se van a casar (Nosotros) */}
-          <section className="flex flex-col items-center justify-center text-center gap-3">
+          <section className="flex flex-col items-center justify-center text-center gap-3 w-full">
             <h2 className="text-5xl md:text-6xl font-[Pinyon_Script] font-medium">
               Nosotros
             </h2>
-            <div className="text-xs tracking-widest uppercase font-[Roboto_Slab] opacity-75">
+            {/* <div className="text-xs tracking-widest uppercase font-[Roboto_Slab] opacity-75">
               Nuestra Historia
+            </div> */}
+
+            <div className="grid grid-cols-2 gap-3 w-full mt-2">
+              <div className="overflow-hidden rounded-2xl shadow-md border border-amber-900/20 aspect-[4/5]">
+                <img
+                  src={bgHero}
+                  alt="Leslie y Héctor"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="overflow-hidden rounded-2xl shadow-md border border-amber-900/20 aspect-[4/5]">
+                <img
+                  src={photoReal2}
+                  alt="Leslie y Héctor"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
-            {/* Espacio para fotos con marco / canva */}
           </section>
+
+          {/* Decoración papel picado */}
+          <div className="w-full flex justify-center py-1 pointer-events-none">
+            <img
+              src={picado2Svg}
+              alt="Papel picado decorativo"
+              className="w-full max-w-xs object-contain"
+            />
+          </div>
 
           {/* Elemento Spotify (canción de ambos) */}
           <section className="flex flex-col items-center justify-center text-center gap-3 w-full">
@@ -155,6 +188,15 @@ export default function Home() {
               />
             </div>
           </section>
+
+          {/* Decoración sombreros */}
+          {/* <div className="w-full flex justify-center py-1 pointer-events-none">
+            <img
+              src={sombrerosSvg}
+              alt="Sombreros decorativos"
+              className="w-40 max-w-[55%] object-contain drop-shadow-sm"
+            />
+          </div> */}
 
           {/* Localización Maps (recepción y ceremonia) */}
           <section className="flex flex-col items-center justify-center text-center gap-3 w-full">
@@ -189,6 +231,15 @@ export default function Home() {
             </div>
             <BotonCalendario />
           </section>
+
+          {/* Decoración papel picado */}
+          <div className="w-full flex justify-center py-1 pointer-events-none">
+            <img
+              src={picado3Svg}
+              alt="Papel picado decorativo"
+              className="w-full max-w-xs object-contain"
+            />
+          </div>
 
           {/* Itinerario */}
           <section className="flex flex-col items-center justify-center text-center gap-3 w-full">
@@ -233,6 +284,15 @@ export default function Home() {
             </div>
           </section>
 
+          {/* Decoración tacos */}
+          <div className="w-full flex justify-center py-1 pointer-events-none">
+            <img
+              src={tacosSvg}
+              alt="Tacos decorativos"
+              className="w-36 max-w-[50%] object-contain drop-shadow-sm"
+            />
+          </div>
+
           {/* Nuestros padres */}
           {/* <section className="flex flex-col items-center justify-center text-center gap-3">
             <h2 className="text-5xl md:text-6xl font-[Pinyon_Script] font-medium">
@@ -244,14 +304,28 @@ export default function Home() {
           </section> */}
 
           {/* Regalos y Apadrinaje */}
-          <section className="flex flex-col items-center justify-center text-center gap-3">
+          <section className="flex flex-col items-center justify-center text-center gap-3 w-full">
             <h2 className="text-5xl md:text-6xl font-[Pinyon_Script] font-medium">
-              Mesa de Regalos & Apadrinaje
+              LLuvia de Sobres
             </h2>
-            <div className="text-xs tracking-widest uppercase font-[Roboto_Slab] opacity-75">
-              Transferencia & Padrinos
+            <div className="text-xs font-semibold tracking-wider font-[Roboto_Slab] uppercase opacity-90">
+              Ya tenemos todo para nuestro hogar!
             </div>
-            {/* Espacio para datos de transferencia y tabla dinámica de apadrinaje */}
+            <div className="text-xs font-semibold tracking-wider font-[Roboto_Slab] uppercase opacity-90">
+              deposita tus regalos a esta cuenta:
+            </div>
+
+            <div className="flex flex-col items-center justify-center w-full max-w-xs mt-2 py-3.5 px-5 bg-white/30 backdrop-blur-xs rounded-2xl border border-amber-900/15 shadow-xs text-center gap-1">
+              <span className="text-sm md:text-base font-bold font-[Roboto_Slab] tracking-wider uppercase">
+                CUENTA BBVA
+              </span>
+              <span className="text-xs sm:text-sm md:text-base font-bold font-[Roboto_Slab] tracking-wider uppercase select-all">
+                CLABE 0120 9001 5834 475302
+              </span>
+              <span className="text-sm md:text-base font-bold font-[Roboto_Slab] tracking-wider uppercase">
+                LESLIE LOPEZ LOZANO
+              </span>
+            </div>
           </section>
 
           {/* Botón de asistencia */}
@@ -264,6 +338,16 @@ export default function Home() {
             </div> */}
             <BotonAsistencia nombreInvitado={nombreInvitado} />
           </section>
+
+          {/* Cactus al fondo de la invitación (de un solo color café) */}
+          <div className="w-full flex justify-center -mb-16 mt-2 pointer-events-none overflow-hidden">
+            <img
+              src={cactusSvg}
+              alt="Cactus decorativo"
+              className="w-full max-w-[440px] object-contain"
+            />
+          </div>
+
 
 
         </div>
