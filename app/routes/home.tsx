@@ -285,13 +285,13 @@ export default function Home() {
           </section>
 
           {/* Decoración tacos */}
-          <div className="w-full flex justify-center py-1 pointer-events-none">
+          {/* <div className="w-full flex justify-center py-1 pointer-events-none">
             <img
               src={tacosSvg}
               alt="Tacos decorativos"
               className="w-36 max-w-[50%] object-contain drop-shadow-sm"
             />
-          </div>
+          </div> */}
 
           {/* Nuestros padres */}
           {/* <section className="flex flex-col items-center justify-center text-center gap-3">
@@ -340,13 +340,13 @@ export default function Home() {
           </section>
 
           {/* Cactus al fondo de la invitación (de un solo color café) */}
-          <div className="w-full flex justify-center -mb-16 mt-2 pointer-events-none overflow-hidden">
+          {/* <div className="w-full flex justify-center -mb-16 mt-2 pointer-events-none overflow-hidden">
             <img
               src={cactusSvg}
               alt="Cactus decorativo"
               className="w-full max-w-[440px] object-contain"
             />
-          </div>
+          </div> */}
 
 
 
