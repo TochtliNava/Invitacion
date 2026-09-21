@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Boda Hector y Leslie//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:boda-hector-leslie-20261017@boda
+DTSTAMP:20260920T000000Z
+DTSTART:20261017T170000
+DTEND:20261018T020000
+SUMMARY:Boda Hector y Leslie
+DESCRIPTION:Celebración de la Boda de Leslie & Héctor.\n\n• Ceremonia civil: 5:00 pm\n• Recepción: 6:00 pm\n\nLugar: Jardín De Eventos La Felicidad\n¡Esperamos contar con tu presencia!
+LOCATION:Jardín De Eventos La Felicidad
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: Mañana es la Boda de Hector y Leslie
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT2H
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio: En 2 horas inicia la Boda de Hector y Leslie
+END:VALARM
+END:VEVENT
+END:VCALENDAR

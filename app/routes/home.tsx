@@ -1,6 +1,11 @@
+import { useSearchParams } from "react-router";
 import { LUGAR, BG, PHOTO_1, PHOTO_2, LAURELES, FRASE } from "~/placeholder/placeholder";
+import { INVITADOS } from "~/placeholder/invitados";
 import type { Route } from "./+types/home";
 import Cronometro from "~/components/Cronometro";
+import BotonCalendario from "~/components/BotonCalendario";
+import BotonAsistencia from "~/components/BotonAsistencia";
+
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -10,105 +15,80 @@ export function meta({ }: Route.MetaArgs) {
 }
 
 export default function Home() {
+  const [searchParams] = useSearchParams();
+  const key = searchParams.get("key");
+  const nombreInvitado = key ? INVITADOS[key] : null;
+
   return (
-    <div className="flex flex-col bg-[#b3a8a5] h-full w-full font-[Roboto_Slab] ">
+    <div className="min-h-screen w-full bg-[#302b29] flex justify-center sm:py-6 sm:px-4">
+      {/* Contenedor formato de celular / móvil */}
+      <div className="w-full max-w-[440px] min-h-screen bg-[#b3a8a5] sm:rounded-3xl shadow-2xl overflow-x-hidden flex flex-col font-[Roboto_Slab] relative">
 
-      <div className="flex flex-col relative bg-[url(./app/assets/img/placeholder1.png)] bg-cover bg-green-600 w-full md:flex md:flex-row-reverse md:bg-green-600">
+        {/* Portada / Hero con formato móvil */}
+        <div className="flex flex-col relative bg-[url(./app/assets/img/real1.jpg)] bg-cover bg-top min-h-[100dvh] w-full">
 
-        <div className="flex flex-col absolute z-20 h-full w-full">
+          {/* Degradado inferior para legibilidad sin cortar contenido */}
+          <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/85 via-black/35 to-black/10 pointer-events-none" />
 
-          <div className="h-full"></div>
+          {/* Contenido distribuido verticalmente en el alto de la pantalla del celular */}
+          <div className="relative z-20 flex flex-col justify-between min-h-[100dvh] w-full p-6 pt-12 pb-10 text-white text-shadow-lg/40 text-center">
 
-          <div className="h-full backdrop-filter-[blur(10px)] mask-t-from-50%"></div>
-
-        </div>
-
-
-        <div className="flex flex-col abs z-30 h-full w-full">
-
-          <div className="flex flex-col w-full items-center justify-center text-center text-white text-shadow-lg/40">
-
-            <div className="flex w-full mt-3 h-100 justify-center">
-
-              <div className="text-[1.2rem] text-shadow-lg/40">
-
+            <div className="flex flex-col items-center gap-1">
+              {nombreInvitado && (
+                <div className="text-3xl md:text-4xl leading-tight">
+                  {nombreInvitado},
+                </div>
+              )}
+              <div className="text-[1.1rem] tracking-widest uppercase">
                 TE INVITAMOS A CELEBRAR
-
               </div>
-
             </div>
 
-            <div className="font-norma w-full pb-4">
+            {/* Espacio flexible que deja ver las caras de los novios sin empujar el texto fuera de pantalla */}
+            <div className="flex-1 min-h-20"></div>
 
-              <div className="flex flex-col gap-5">
-
-                <div className="flex flex-col text-center gap-5">
-
-                  <div className="">
-
-                    <div className="text-[1rem] mb-2">LA BODA DE</div>
-
-                    <div className="text-6xl font-[Pinyon_Script] font-medium">Leslie & Héctor</div>
-
-                  </div>
-
-                  <div className="flex flex-col gap-3">
-
-                    <div className="text-center text-[1rem] flex flex-row justify-center gap-6">
-
-                      <div className="flex h-auto items-center">OCT</div>
-
-                      <div className="flex text-2xl h-auto items-center">|</div>
-
-                      <div className="flex flex-col text-[1.2rem] font-[450] h-auto justify-center">
-
-                        <div className="flex items-center">SAB</div>
-
-                        <div className="flex justify-center items-center">17</div>
-
-                      </div>
-
-                      <div className="flex text-2xl h-auto items-center">|</div>
-
-                      <div className="flex h-auto items-center">2026</div>
-
-                    </div>
-
-                  </div>
-
-                  <div className="text-center text-[0.8rem]">
-
-                    <div className="">{LUGAR}</div>
-
-                  </div>
-
-                </div>
-
+            <div className="flex flex-col gap-4 w-full pb-2">
+              <div className="text-[1rem] tracking-wider uppercase opacity-95">
+                LA BODA DE
               </div>
 
+              <div className="text-6xl font-[Pinyon_Script] font-medium leading-none">
+                Leslie & Héctor
+              </div>
+
+              <div className="flex flex-row justify-center items-center gap-6 text-[1rem] my-1">
+                <span className="font-light">OCT</span>
+                <span className="text-2xl font-thin opacity-60">|</span>
+                <div className="flex flex-col text-[1.2rem] font-medium justify-center leading-tight">
+                  <span className="text-xs uppercase opacity-80">SAB</span>
+                  <span className="text-2xl font-bold">17</span>
+                </div>
+                <span className="text-2xl font-thin opacity-60">|</span>
+                <span className="font-light">2026</span>
+              </div>
+
+              <div className="text-[0.85rem] tracking-wide uppercase opacity-90">
+                {LUGAR}
+              </div>
             </div>
 
           </div>
 
         </div>
 
-      </div>
+        {/* Sección principal de contenido con textura */}
+        <div className="flex flex-col relative font-[Inter] min-h-screen w-full bg-[url(./app/assets/img/bg3.jpg)] bg-cover bg-repeat">
 
+          <div className="mt-12 text-amber-900 text-shadow-xs/20">
+            <Cronometro deadline={new Date("October 17, 2026 00:00:00")} />
+          </div>
 
-      <div className="flex flex-col relative font-[Inter] bg-amber-400 h-full w-full bg-[url(./app/assets/img/bg3.jpg)] bg-cover bg-repeat backdrop-filter-[blur(10px)] mask-t-from-80%">
+          {/* <div className="flex mt-8 px-6 text-center text-amber-900 text-shadow-xs/20">
+            <p className="italic leading-relaxed">"{FRASE}"</p>
+          </div> */}
 
-        <div className="mt-15 text-amber-900 text-shadow-xs/20">
-
-          <Cronometro deadline={new Date("October 17, 2026 00:00:00")} />
-
-        </div>
-
-        <div className="flex mt-10 pl-2 pr-2 text-center text-amber-900 text-shadow-xs/20">
-
-          <p className="italic">"{FRASE}"</p>
-
-        </div>
-
+        {/* Secciones previas comentadas (no borrar) */}
+        {/*
         <div className="flex flex-col w-full mt-10 mb-4">
 
           <div className="text-center">SPOTIFY</div>
@@ -118,7 +98,7 @@ export default function Home() {
             <div className="text-center">UBICACIÓN</div>
 
             <div>
-              {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1159.4264844453328!2d-103.75872629051327!3d19.239390234936103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84254507da444291%3A0xa3feb2c0d0691861!2sSal%C3%B3n%20y%20Terraza%20Calinda%20Eventos!5e0!3m2!1ses-419!2smx!4v1772761048764!5m2!1ses-419!2smx" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1159.4264844453328!2d-103.75872629051327!3d19.239390234936103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84254507da444291%3A0xa3feb2c0d0691861!2sSal%C3%B3n%20y%20Terraza%20Calinda%20Eventos!5e0!3m2!1ses-419!2smx!4v1772761048764!5m2!1ses-419!2smx" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
           </div>
@@ -126,11 +106,157 @@ export default function Home() {
           <div>a</div>
 
         </div>
+        */}
+
+        {/* Títulos y secciones del README */}
+        <div className="flex flex-col w-full px-4 gap-16 mt-12 mb-16 text-amber-900 text-shadow-xs/20">
+
+          {/* Fotos de los que se van a casar (Nosotros) */}
+          <section className="flex flex-col items-center justify-center text-center gap-3">
+            <h2 className="text-5xl md:text-6xl font-[Pinyon_Script] font-medium">
+              Nosotros
+            </h2>
+            <div className="text-xs tracking-widest uppercase font-[Roboto_Slab] opacity-75">
+              Nuestra Historia
+            </div>
+            {/* Espacio para fotos con marco / canva */}
+          </section>
+
+          {/* Elemento Spotify (canción de ambos) */}
+          <section className="flex flex-col items-center justify-center text-center gap-3 w-full">
+            <h2 className="text-5xl md:text-6xl font-[Pinyon_Script] font-medium">
+              Nuestra Canción
+            </h2>
+            <div className="text-sm font-semibold tracking-wider font-[Roboto_Slab] uppercase opacity-90">
+              Si Nos Dejan
+            </div>
+
+            <div className="w-full mt-2 rounded-2xl overflow-hidden shadow-md">
+              <iframe
+                style={{ borderRadius: "12px" }}
+                src="https://open.spotify.com/embed/track/4UL5vyI2NyX4EkvQeA17i5?utm_source=generator&si=26c218a47b2c404b"
+                width="100%"
+                height="152"
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                title="Spotify - Si Nos Dejan"
+              />
+            </div>
+          </section>
+
+          {/* Localización Maps (recepción y ceremonia) */}
+          <section className="flex flex-col items-center justify-center text-center gap-3 w-full">
+            <h2 className="text-5xl md:text-6xl font-[Pinyon_Script] font-medium">
+              Ubicación
+            </h2>
+            <div className="text-sm font-semibold tracking-wider font-[Roboto_Slab] uppercase opacity-90">
+              Jardín De Eventos La Felicidad
+            </div>
+
+            <div className="w-full mt-2 rounded-2xl overflow-hidden shadow-md border border-amber-900/20">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7533.692379704722!2d-103.66892365300387!3d19.245533976185634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84255bacd05ee5fd%3A0x75b5c96f18c5eb88!2sJard%C3%ADn%20de%20Eventos%20La%20Felicidad!5e0!3m2!1sen!2smx!4v1789884947936!5m2!1sen!2smx"
+                width="100%"
+                height="260"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ubicación - Jardín De Eventos La Felicidad"
+              />
+            </div>
+          </section>
+
+          {/* Botón de agendar en calendario */}
+          <section className="flex flex-col items-center justify-center text-center gap-3">
+            <h2 className="text-5xl md:text-6xl font-[Pinyon_Script] font-medium">
+              Agendar Fecha
+            </h2>
+            <div className="text-sm font-semibold tracking-wider font-[Roboto_Slab] uppercase opacity-90">
+              Guarda este día en tu calendario
+            </div>
+            <BotonCalendario />
+          </section>
+
+          {/* Itinerario */}
+          <section className="flex flex-col items-center justify-center text-center gap-3 w-full">
+            <h2 className="text-5xl md:text-6xl font-[Pinyon_Script] font-medium">
+              Itinerario
+            </h2>
+
+            <div className="flex flex-col gap-3 w-full max-w-xs mt-2">
+              <div className="flex justify-between items-center py-3 px-5 bg-white/30 backdrop-blur-xs rounded-2xl border border-amber-900/15 shadow-xs">
+                <span className="text-sm font-semibold font-[Roboto_Slab] uppercase opacity-90">
+                  Ceremonia civil
+                </span>
+                <span className="text-sm font-bold font-[Roboto_Slab]">
+                  5:00 pm
+                </span>
+              </div>
+
+              <div className="flex justify-between items-center py-3 px-5 bg-white/30 backdrop-blur-xs rounded-2xl border border-amber-900/15 shadow-xs">
+                <span className="text-sm font-semibold font-[Roboto_Slab] uppercase opacity-90">
+                  Recepción
+                </span>
+                <span className="text-sm font-bold font-[Roboto_Slab]">
+                  6:00 pm
+                </span>
+              </div>
+            </div>
+          </section>
+
+          {/* Dress code */}
+          <section className="flex flex-col items-center justify-center text-center gap-3">
+            <h2 className="text-5xl md:text-6xl font-[Pinyon_Script] font-medium">
+              Código de Vestimenta
+            </h2>
+            <div className="text-xs tracking-widest uppercase font-[Roboto_Slab] opacity-75">
+              Dress Code
+            </div>
+            {/* Espacio para detalles del código de vestimenta */}
+          </section>
+
+          {/* Nuestros padres */}
+          {/* <section className="flex flex-col items-center justify-center text-center gap-3">
+            <h2 className="text-5xl md:text-6xl font-[Pinyon_Script] font-medium">
+              Nuestros Padres
+            </h2>
+            <div className="text-xs tracking-widest uppercase font-[Roboto_Slab] opacity-75">
+              Con la bendición de nuestras familias
+            </div>
+          </section> */}
+
+          {/* Regalos y Apadrinaje */}
+          <section className="flex flex-col items-center justify-center text-center gap-3">
+            <h2 className="text-5xl md:text-6xl font-[Pinyon_Script] font-medium">
+              Mesa de Regalos & Apadrinaje
+            </h2>
+            <div className="text-xs tracking-widest uppercase font-[Roboto_Slab] opacity-75">
+              Transferencia & Padrinos
+            </div>
+            {/* Espacio para datos de transferencia y tabla dinámica de apadrinaje */}
+          </section>
+
+          {/* Botón de asistencia */}
+          <section className="flex flex-col items-center justify-center text-center gap-3">
+            <h2 className="text-5xl md:text-6xl font-[Pinyon_Script] font-medium">
+              Confirmación de Asistencia
+            </h2>
+            {/* <div className="text-xs tracking-widest uppercase font-[Roboto_Slab] opacity-75">
+              RSVP • WhatsApp & QR
+            </div> */}
+            <BotonAsistencia nombreInvitado={nombreInvitado} />
+          </section>
+
+
+        </div>
 
       </div>
 
-
-
     </div>
+
+  </div>
   );
 }
+
