@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router";
-import { LUGAR, BG, PHOTO_1, PHOTO_2, LAURELES, FRASE } from "~/placeholder/placeholder";
+import { LUGAR, BG, PHOTO_1, PHOTO_2, LAURELES, FRASE, FRASE2, FRASE3, FRASE4 } from "~/placeholder/placeholder";
 import { INVITADOS } from "~/placeholder/invitados";
 import type { Route } from "./+types/home";
 import Cronometro from "~/components/Cronometro";
@@ -102,9 +102,11 @@ export default function Home() {
             <Cronometro deadline={new Date("October 17, 2026 00:00:00")} />
           </div>
 
-          {/* <div className="flex mt-8 px-6 text-center text-amber-900 text-shadow-xs/20">
-            <p className="italic leading-relaxed">"{FRASE}"</p>
-          </div> */}
+          <div className="flex-col mt-8 px-6 text-center text-amber-900 text-shadow-xs/20">
+            <p className="italic leading-relaxed">"{FRASE}</p>
+            <p className="italic leading-relaxed"><strong>Leslie y Héctor</strong></p>
+            <p className="italic leading-relaxed">{FRASE2}"</p>
+          </div>
 
         {/* Secciones previas comentadas (no borrar) */}
         {/*
@@ -336,6 +338,12 @@ export default function Home() {
             {/* <div className="text-xs tracking-widest uppercase font-[Roboto_Slab] opacity-75">
               RSVP • WhatsApp & QR
             </div> */}
+            <div className="text-xs font-semibold tracking-wider font-[Roboto_Slab] uppercase opacity-90">
+              {FRASE3}
+            </div>
+            <div className="text-xs font-semibold tracking-wider font-[Roboto_Slab] uppercase opacity-90">
+              {FRASE4}
+            </div>
             <BotonAsistencia nombreInvitado={nombreInvitado} />
           </section>
 

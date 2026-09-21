@@ -34,7 +34,7 @@ export default function BotonAsistencia({
         <span>¡Asistiré!</span>
       </a>
       <p className="text-xs text-amber-900/70 font-[Roboto_Slab]">
-        Haz clic para confirmar tu lugar vía WhatsApp
+        <strong>¡Nos vemos en la boda!</strong>
       </p>
     </div>
   );
