@@ -55,7 +55,7 @@ export const INVITADOS: Record<string, string> = {
 "28634294":"Roberto",
 "18100284":"Esposa de roberto",
 "75200872":"Marisol",
-"51391514":"Nelu",
+"51391514":"Nelú",
 "15538630":"Sara",
 "20831146":"Hector hermano de Jaime",
 "43983416":"Novio de hector",
