@@ -5,6 +5,9 @@ import type { Route } from "./+types/home";
 import Cronometro from "~/components/Cronometro";
 import BotonCalendario from "~/components/BotonCalendario";
 import BotonAsistencia from "~/components/BotonAsistencia";
+import bgHero from "~/assets/img/real1.jpg";
+import bgTexture from "~/assets/img/bg3.jpg";
+
 
 
 export function meta({ }: Route.MetaArgs) {
@@ -25,7 +28,11 @@ export default function Home() {
       <div className="w-full max-w-[440px] min-h-screen bg-[#b3a8a5] sm:rounded-3xl shadow-2xl overflow-x-hidden flex flex-col font-[Roboto_Slab] relative">
 
         {/* Portada / Hero con formato móvil */}
-        <div className="flex flex-col relative bg-[url(./app/assets/img/real1.jpg)] bg-cover bg-top min-h-[100dvh] w-full">
+        <div
+          className="flex flex-col relative bg-cover bg-top min-h-[100dvh] w-full"
+          style={{ backgroundImage: `url(${bgHero})` }}
+        >
+
 
           {/* Degradado inferior para legibilidad sin cortar contenido */}
           <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/85 via-black/35 to-black/10 pointer-events-none" />
@@ -77,7 +84,11 @@ export default function Home() {
         </div>
 
         {/* Sección principal de contenido con textura */}
-        <div className="flex flex-col relative font-[Inter] min-h-screen w-full bg-[url(./app/assets/img/bg3.jpg)] bg-cover bg-repeat">
+        <div
+          className="flex flex-col relative font-[Inter] min-h-screen w-full bg-cover bg-repeat"
+          style={{ backgroundImage: `url(${bgTexture})` }}
+        >
+
 
           <div className="mt-12 text-amber-900 text-shadow-xs/20">
             <Cronometro deadline={new Date("October 17, 2026 00:00:00")} />
@@ -187,7 +198,7 @@ export default function Home() {
 
             <div className="flex flex-col gap-3 w-full max-w-xs mt-2">
               <div className="flex justify-between items-center py-3 px-5 bg-white/30 backdrop-blur-xs rounded-2xl border border-amber-900/15 shadow-xs">
-                <span className="text-sm font-semibold font-[Roboto_Slab] uppercase opacity-90">
+                <span className="text-sm font-semibold font-[Roboto_Slab] uppercase opacity-100">
                   Ceremonia civil
                 </span>
                 <span className="text-sm font-bold font-[Roboto_Slab]">
@@ -196,7 +207,7 @@ export default function Home() {
               </div>
 
               <div className="flex justify-between items-center py-3 px-5 bg-white/30 backdrop-blur-xs rounded-2xl border border-amber-900/15 shadow-xs">
-                <span className="text-sm font-semibold font-[Roboto_Slab] uppercase opacity-90">
+                <span className="text-sm font-semibold font-[Roboto_Slab] uppercase opacity-100">
                   Recepción
                 </span>
                 <span className="text-sm font-bold font-[Roboto_Slab]">
@@ -207,14 +218,19 @@ export default function Home() {
           </section>
 
           {/* Dress code */}
-          <section className="flex flex-col items-center justify-center text-center gap-3">
+          <section className="flex flex-col items-center justify-center text-center gap-3 w-full">
             <h2 className="text-5xl md:text-6xl font-[Pinyon_Script] font-medium">
               Código de Vestimenta
             </h2>
-            <div className="text-xs tracking-widest uppercase font-[Roboto_Slab] opacity-75">
+            {/* <div className="text-xs tracking-widest uppercase font-[Roboto_Slab] opacity-75">
               Dress Code
+            </div> */}
+
+            <div className="flex items-center justify-center w-full max-w-xs mt-2 py-3.5 px-5 bg-white/30 backdrop-blur-xs rounded-2xl border border-amber-900/15 shadow-xs">
+              <span className="text-sm md:text-base font-bold font-[Roboto_Slab] tracking-wider uppercase">
+                Elegancia Mexicana o Cóctel
+              </span>
             </div>
-            {/* Espacio para detalles del código de vestimenta */}
           </section>
 
           {/* Nuestros padres */}
