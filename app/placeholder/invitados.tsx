@@ -105,5 +105,5 @@ export const INVITADOS: Record<string, string> = {
 "15075336":"test",
 "27125758":"test",
 "85228320":"test",
-  "ejemplo": "test",
+"generic": "¡Hola!",
 };
