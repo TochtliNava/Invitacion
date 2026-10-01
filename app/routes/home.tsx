@@ -5,14 +5,13 @@ import type { Route } from "./+types/home";
 import Cronometro from "~/components/Cronometro";
 import BotonCalendario from "~/components/BotonCalendario";
 import BotonAsistencia from "~/components/BotonAsistencia";
-import bgHero from "~/assets/img/real1.jpg";
+import Carrusel from "~/components/Carrusel";
 import bgTexture from "~/assets/img/bg3.jpg";
 import cactusSvg from "~/assets/img/cactus.svg";
 import picado2Svg from "~/assets/img/picado2.svg";
 import picado3Svg from "~/assets/img/picado3.svg";
 import sombrerosSvg from "~/assets/img/sombreros.svg";
 import tacosSvg from "~/assets/img/tacos.svg";
-import photoReal2 from "~/assets/img/real2.jpg";
 import photoReal3 from "~/assets/img/real3.jpg";
 
 
@@ -141,21 +140,8 @@ export default function Home() {
               Nuestra Historia
             </div> */}
 
-            <div className="grid grid-cols-2 gap-3 w-full mt-2">
-              <div className="overflow-hidden rounded-2xl shadow-md border border-amber-900/20 aspect-[4/5]">
-                <img
-                  src={bgHero}
-                  alt="Leslie y Héctor"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="overflow-hidden rounded-2xl shadow-md border border-amber-900/20 aspect-[4/5]">
-                <img
-                  src={photoReal2}
-                  alt="Leslie y Héctor"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div className="w-full mt-2">
+              <Carrusel />
             </div>
           </section>
 
