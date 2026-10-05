@@ -14,7 +14,7 @@ export const INVITADOS: Record<string, string> = {
 "21886923":"Norberto Velasco y Señora",
 "28000055":"Tio Héctor López & Señora",
 "32363384":"Chef Hugo & Señora",
-"26063221":"",
+"26063221":"José Figueroa Cuevas",
 "76990414":"Tia Yolanda López & Familia (3)",
 "45746396":"Yolanda Velázquez",
 "71830138":"Irving López & Alessa de López +1",
