@@ -72,7 +72,7 @@ export const INVITADOS: Record<string, string> = {
 "80066293":"Jonathan",
 "66118762":"Alex & Silvia",
 "47756257":"",
-"16129564":"Mar Gónzales",
+"16129564":"Mar Gónzales & Alexis Paz",
 "68867543":"",
 "89848559":"Richy Luna & Sandra Rivera",
 "54811905":"",
